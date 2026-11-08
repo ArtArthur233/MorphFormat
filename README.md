@@ -23,6 +23,8 @@ macOS and Linux: no download yet. See [Build from source](#build-from-source).
 
 ## How to use it
 
+![Morph-Format window: a converted video in the queue, settings on the right](docs/images/screenshot.png)
+
 1. **Add your files:** drag photos, videos or whole folders into the window, or click **Add files…** / **Add folder…**.
 2. **Choose the settings** in the right-hand panel:
    - **Image format / Video format:** the format to convert to. Each list appears only when your queue holds that kind of file.
