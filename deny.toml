@@ -1,0 +1,40 @@
+# cargo-deny: `cargo deny check` (licences: `cargo deny check licenses`)
+[graph]
+# Check the optional native-binding crates too (features heic, video).
+all-features = true
+
+[licenses]
+confidence-threshold = 0.8
+# Permissive only, compatible with MIT OR Apache-2.0.
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Zlib",
+    "Unicode-3.0",
+    "BSL-1.0",
+    # Exceptions, each permissive and used as-is:
+    "WTFPL",           # ffmpeg-next / ffmpeg-sys-next (Rust bindings only; FFmpeg itself is LGPL, see docs/licences.md)
+    "OFL-1.1",         # fonts embedded by egui (epaint_default_fonts); font licence, no copyleft on the program
+    "Ubuntu-font-1.0", # same: Ubuntu font embedded by epaint_default_fonts
+]
+# LGPL FFmpeg/libheif are native libraries linked dynamically, not crates; the
+# Rust bindings (ffmpeg-next, libheif-rs) are MIT. GPL/AGPL are not in `allow`, hence denied.
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+
+[advisories]
+version = 2
+yanked = "warn"
+# Only direct dependencies: the unmaintained notices today are transitive (egui/accesskit stack).
+unmaintained = "workspace"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]

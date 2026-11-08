@@ -1,0 +1,23 @@
+# cargo-packager config. Run through scripts/package-windows.ps1, which first fills dist/app.
+name = "morph-format"
+product-name = "Morph-Format"
+identifier = "io.github.artarthur233.morph-format"
+version = "0.1.0" # must match [workspace.package] version (the script checks it)
+description = "Local photo and video converter"
+authors = ["Morph-Format contributors"]
+license-file = "LICENSE-MIT"
+homepage = "https://github.com/ArtArthur233/Morph-Format"
+icons = ["crates/morph-app/assets/icon.ico", "crates/morph-app/assets/icon.png"]
+out-dir = "dist"
+formats = ["nsis"]
+binaries-dir = "dist/app"
+binaries = [{ path = "morph-format.exe", main = true }]
+# DLLs next to the exe (replaceable, LGPL) and the licence folder
+resources = [
+  { src = "dist/app/*.dll", target = "" },
+  { src = "dist/app/licences", target = "licences" },
+]
+
+[nsis]
+installer-mode = "currentUser" # per-user, no admin
+languages = ["French"]

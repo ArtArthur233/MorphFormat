@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+members = ["crates/morph-core", "crates/morph-app"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Morph-Format contributors"]
+repository = "https://github.com/ArtArthur233/Morph-Format"
