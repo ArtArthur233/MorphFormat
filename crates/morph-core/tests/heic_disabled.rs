@@ -18,7 +18,7 @@ fn heic_input_reports_feature_disabled() {
         options: ConvertOptions::default(),
     };
     let err = convert(&job, &|_| {}, &AtomicBool::new(false)).unwrap_err();
-    assert!(matches!(err, Error::FeatureDisabled("HEIC")));
+    assert!(matches!(err, Error::FeatureDisabled("HEIC")), "{err:?}");
     assert_eq!(err.to_string(), "HEIC support not enabled in this build");
     assert!(!job.output.exists());
 }
