@@ -9,7 +9,7 @@ Produces an **NSIS installer** (`.exe`) in `dist/`, with HEIC and video enabled.
 - Visual Studio Build Tools. They provide `dumpbin`, which the script uses to check the DLLs.
 - LLVM (`winget install LLVM.LLVM`).
 - cargo-packager: `cargo install cargo-packager --locked`. It is MIT/Apache, and downloads NSIS on first run, so it needs network access once.
-- A `morph-deps` folder. By default it is `%USERPROFILE%\Desktop\dev\morph-deps`; you can override it with the `MORPH_DEPS` variable or with the `-FfmpegDir`, `-HeifDir` and `-VcpkgRoot` parameters. It must contain:
+- A `morph-deps` folder. By default it is a `morph-deps` folder next to the repository folder; you can override it with the `MORPH_DEPS` variable or with the `-FfmpegDir`, `-HeifDir` and `-VcpkgRoot` parameters. It must contain:
   - `ffmpeg\`: the vcpkg `x64-windows` tree of the LGPL FFmpeg build ([build-ffmpeg.md](build-ffmpeg.md));
   - `heif\`: the vcpkg `x64-windows` tree of libheif + libde265 ([build-libheif.md](build-libheif.md));
   - `vcpkg-root\`: a minimal vcpkg root read by `libheif-sys`. It holds:

@@ -8,7 +8,7 @@
 .PARAMETER SkipBuild  Reuse the existing target\release\morph-format.exe.
 #>
 param(
-    [string]$DepsDir = $(if ($env:MORPH_DEPS) { $env:MORPH_DEPS } else { Join-Path $env:USERPROFILE 'Desktop\dev\morph-deps' }),
+    [string]$DepsDir = $(if ($env:MORPH_DEPS) { $env:MORPH_DEPS } else { Join-Path $PSScriptRoot '..\..\morph-deps' }),
     [string]$FfmpegDir = (Join-Path $DepsDir 'ffmpeg'),
     [string]$HeifDir = (Join-Path $DepsDir 'heif'),
     [string]$VcpkgRoot = (Join-Path $DepsDir 'vcpkg-root'),
